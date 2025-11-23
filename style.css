@@ -87,6 +87,41 @@ header {
     color: var(--primary-teal);
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
 /* Hero Section */
 .hero-section {
     min-height: 100vh;
@@ -802,17 +837,158 @@ footer {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+
+    /* Header adjustments */
+    header {
+        padding: 10px 0;
+    }
+
     .logo {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Show hamburger menu */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Mobile navigation */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg-beige);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .nav-links.active li:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .nav-links.active li:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .nav-links.active li:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .nav-links.active li:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    .nav-links a {
+        font-size: 1.8rem;
+        padding: 15px 30px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background-color: var(--primary-teal);
+        color: white;
+    }
+
+    /* Hero section */
+    .hero-section {
+        padding-top: 100px;
+        min-height: 80vh;
     }
 
     .hero-title {
         font-size: 2.5rem;
     }
 
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    /* Abstract shapes smaller */
+    .shape-1 {
+        width: 100px;
+        height: 200px;
+    }
+
+    .shape-2 {
+        width: 70px;
+        height: 70px;
+    }
+
+    .shape-3 {
+        width: 150px;
+        height: 100px;
+    }
+
+    /* About section */
     .section-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .about-text {
+        font-size: 1.2rem;
+    }
+
+    /* Services section */
+    .service-main-title {
+        font-size: 2rem;
+    }
+
+    .service-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .service-card {
+        padding: 30px 15px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-question {
+        font-size: 1.2rem;
+    }
+
+    .service-list li {
+        font-size: 1rem;
+    }
+
+    .big-list li {
+        font-size: 1.2rem;
+    }
+
+    /* Info section */
+    .info-section {
+        padding: 60px 0;
     }
 
     .info-title {
@@ -820,27 +996,74 @@ footer {
     }
 
     .info-details {
-        font-size: 1.5rem;
-    }
-
-    .nav-links {
-        display: none;
+        font-size: 1.3rem;
     }
 
     .contact-item {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .contact-item a {
+        word-break: break-word;
+    }
+
+    /* Footer */
+    footer {
+        padding: 30px 0;
+    }
+
+    .footer-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .footer-info p {
+        font-size: 0.9rem;
+    }
+
+    /* Privacy page */
+    .privacy-section {
+        padding: 100px 0 60px 0;
     }
 
     .privacy-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
+    .privacy-intro {
+        font-size: 1rem;
+    }
+
+    .privacy-block h2 {
+        font-size: 1.5rem;
+    }
+
+    .privacy-block p,
+    .privacy-block li {
+        font-size: 1rem;
+    }
+
+    /* Cookie banner */
     .cookie-consent-content {
         padding: 20px;
     }
 
     .cookie-header h2 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .cookie-intro {
+        font-size: 0.85rem;
+    }
+
+    .category-header h3 {
+        font-size: 1rem;
+    }
+
+    .category-content p {
+        font-size: 0.85rem;
     }
 
     .cookie-footer {
@@ -849,12 +1072,15 @@ footer {
 
     .cookie-btn {
         width: 100%;
+        font-size: 0.9rem;
+        padding: 12px 20px;
     }
 
     .cookie-consent {
         max-height: 95vh;
     }
 
+    /* Cookie settings button */
     .cookie-settings-btn {
         bottom: 20px;
         right: 20px;
@@ -865,5 +1091,67 @@ footer {
     .cookie-settings-btn svg {
         width: 24px;
         height: 24px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+    }
+
+    .service-main-title {
+        font-size: 1.8rem;
+    }
+
+    .service-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .info-title {
+        font-size: 1.8rem;
+    }
+
+    .info-details {
+        font-size: 1.2rem;
+    }
+
+    .contact-item {
+        font-size: 0.95rem;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+    }
+
+    .cookie-header h2 {
+        font-size: 1rem;
+    }
+
+    .cookie-settings-btn {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
     }
 }
