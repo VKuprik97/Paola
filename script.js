@@ -152,3 +152,45 @@ if (hamburger && navLinks) {
         }
     });
 }
+
+// Scroll Animations
+document.addEventListener('DOMContentLoaded', function () {
+    // Add animation classes to elements
+    const heroSection = document.querySelector('.hero-section');
+    const servicesSection = document.querySelector('.services-section');
+    const serviceBoxes = document.querySelectorAll('.service-box');
+    const footer = document.querySelector('footer');
+
+    // Add initial hidden state
+    if (heroSection) heroSection.classList.add('animate-on-scroll');
+    if (servicesSection) {
+        const servicesTitle = servicesSection.querySelector('.services-title');
+        if (servicesTitle) servicesTitle.classList.add('animate-on-scroll');
+    }
+    serviceBoxes.forEach((box, index) => {
+        box.classList.add('animate-on-scroll');
+        box.style.transitionDelay = `${index * 0.1}s`;
+    });
+    if (footer) footer.classList.add('animate-on-scroll');
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                // Stop observing after animation
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+});
