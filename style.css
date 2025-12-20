@@ -131,6 +131,8 @@ body.menu-open {
     position: relative;
     text-align: center;
     padding-top: 140px;
+    background-color: #f5f3f0;
+    overflow: hidden;
 }
 
 .hero-title {
@@ -139,48 +141,75 @@ body.menu-open {
     letter-spacing: 2px;
     margin-bottom: 20px;
     color: #1a1a1a;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
     font-family: var(--font-primary);
     color: var(--primary-teal);
+    position: relative;
+    z-index: 2;
 }
 
-/* Abstract Shapes for Hero */
+/* Pharmacy-themed Abstract Shapes for Hero */
 .abstract-shape {
     position: absolute;
-    z-index: -1;
-    opacity: 0.9;
+    z-index: 1;
 }
 
+/* Large Pill/Capsule Shape */
 .shape-1 {
-    width: 150px;
-    height: 300px;
-    background-color: var(--accent-blue);
-    border-radius: 50% 50% 0 0;
-    top: 10%;
-    left: 20%;
-    transform: rotate(-15deg);
-}
-
-.shape-2 {
-    width: 100px;
-    height: 100px;
-    background-color: var(--accent-coral);
-    border-radius: 50px 50px 0 0;
+    width: 180px;
+    height: 90px;
+    background: linear-gradient(90deg, rgba(0, 128, 128, 0.7) 50%, rgba(32, 112, 160, 0.7) 50%);
+    border-radius: 45px;
     top: 15%;
-    right: 25%;
-    transform: rotate(45deg);
+    left: 10%;
+    transform: rotate(-25deg);
 }
 
+/* Medical Cross */
+.shape-2 {
+    width: 120px;
+    height: 120px;
+    background-color: rgba(208, 96, 96, 0.7);
+    clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+    top: 20%;
+    right: 15%;
+}
+
+/* Large Circle (Pill) */
 .shape-3 {
-    width: 200px;
+    width: 150px;
     height: 150px;
-    background-color: var(--primary-teal);
-    border-radius: 0 100px 100px 0;
-    bottom: 10%;
-    right: -50px;
+    background-color: rgba(0, 128, 128, 0.6);
+    border-radius: 50%;
+    bottom: 15%;
+    right: 8%;
+}
+
+/* Small Capsule */
+.shape-4 {
+    width: 70px;
+    height: 35px;
+    background: linear-gradient(90deg, rgba(208, 96, 96, 0.65) 50%, rgba(0, 128, 128, 0.65) 50%);
+    border-radius: 20px;
+    bottom: 25%;
+    left: 15%;
+    transform: rotate(60deg);
+}
+
+/* Rounded Rectangle */
+.shape-5 {
+    width: 100px;
+    height: 40px;
+    background-color: rgba(32, 112, 160, 0.65);
+    border-radius: 20px;
+    top: 35%;
+    right: 20%;
+    transform: rotate(-15deg);
 }
 
 /* About Section */
@@ -210,138 +239,121 @@ body.menu-open {
     color: var(--text-dark);
 }
 
-/* Services Section */
+/* Services Section - Elegant Design */
 .services-section {
-    padding: 80px 0;
-    background-color: var(--bg-beige);
-}
-
-.service-main-title {
-    font-size: 3.5rem;
-    color: var(--primary-teal);
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.service-subtitle {
-    font-size: 2rem;
-    font-family: var(--font-primary);
-    text-align: center;
-    margin-bottom: 50px;
-    color: #1a1a1a;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.service-card {
-    background: white;
-    padding: 40px 20px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 100px 0;
+    background-color: #f5f3f0;
     position: relative;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-.card-title {
-    font-size: 1.8rem;
-    color: #1a1a1a;
+.services-content {
+    max-width: 700px;
+    margin: 0 auto;
     text-align: center;
-    margin-bottom: 20px;
+    position: relative;
+    padding: 60px 40px;
+    z-index: 2;
+}
+
+/* Pharmacy-themed Abstract Shapes */
+.services-section::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(0, 128, 128, 0.15);
+    border-radius: 50%;
+    top: 15%;
+    left: 8%;
+    z-index: 1;
+}
+
+.services-section::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(208, 96, 96, 0.12);
+    border-radius: 40px;
+    bottom: 20%;
+    right: 10%;
+    z-index: 1;
+    transform: rotate(45deg);
+}
+
+.leaf-decoration {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    width: 100px;
+    height: 40px;
+    background-color: rgba(32, 112, 160, 0.15);
+    border-radius: 50px 50px 50px 50px;
+    z-index: 1;
+    transform: rotate(-20deg);
+}
+
+/* Medical Cross Shape */
+.services-content::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 128, 128, 0.1);
+    clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+    bottom: 10%;
+    left: 5%;
+    z-index: 1;
+}
+
+/* Pill/Capsule Shape */
+.services-content::after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 45px;
+    background: linear-gradient(90deg, rgba(0, 128, 128, 0.12) 50%, rgba(208, 96, 96, 0.12) 50%);
+    border-radius: 25px;
+    top: 12%;
+    left: 10%;
+    z-index: 1;
+    transform: rotate(25deg);
+}
+
+.services-title {
+    font-size: 2rem;
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    font-family: var(--font-primary);
-    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 50px;
+    line-height: 1.4;
 }
 
-.card-question {
-    text-align: center;
-    font-size: 1.4rem;
-    font-family: var(--font-primary);
-    margin-bottom: 20px;
-}
-
-.service-list {
+.services-list {
     list-style: none;
     padding: 0;
-    margin-bottom: 30px;
+    margin: 0 0 50px 0;
 }
 
-.service-list li {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
+.services-list li {
+    font-size: 1.15rem;
+    font-family: var(--font-secondary);
+    color: #2c2c2c;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    font-weight: 300;
 }
 
-.service-list li::before {
-    content: "•";
-    color: var(--text-dark);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
-
-.big-list li {
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: var(--font-primary);
-}
-
-/* Ribbon Style */
-.ribbon {
-    position: absolute;
-    top: 20px;
-    left: -30px;
-    background: #D02020;
-    color: white;
-    padding: 5px 40px;
-    transform: rotate(-45deg);
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-}
-
-.teal-bg {
-    background-color: var(--primary-teal);
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 1.2rem;
-    font-family: var(--font-primary);
-}
-
-.promo-box {
-    margin-top: 20px;
-    transform: rotate(-2deg);
-    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
-}
-
-.bottom-banner {
-    margin: 20px -20px -40px -20px;
-    padding: 20px;
-}
-
-.heartbeat-line {
-    height: 30px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 L10,10 L15,0 L20,20 L25,10 L30,10 L35,5 L40,15 L45,10 L100,10" stroke="black" fill="none"/></svg>');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 20px 0;
-}
-
-.blood-icons {
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 20px;
+.services-footer {
+    font-size: 1.1rem;
+    font-family: var(--font-secondary);
+    font-style: italic;
+    color: #2c2c2c;
+    margin-top: 40px;
+    line-height: 1.6;
 }
 
 /* Info Section */
@@ -1092,66 +1104,32 @@ footer {
         width: 24px;
         height: 24px;
     }
-}
 
-/* Extra small phones */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
+    /* Services Section Mobile */
+    .services-content {
+        padding: 40px 20px;
     }
 
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .about-text {
-        font-size: 1.1rem;
-    }
-
-    .service-main-title {
-        font-size: 1.8rem;
-    }
-
-    .service-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .card-title {
-        font-size: 1.3rem;
-    }
-
-    .info-title {
-        font-size: 1.8rem;
-    }
-
-    .info-details {
-        font-size: 1.2rem;
-    }
-
-    .contact-item {
-        font-size: 0.95rem;
-    }
-
-    .nav-links a {
+    .services-title {
         font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin-bottom: 35px;
     }
 
-    .cookie-header h2 {
+    .services-list li {
         font-size: 1rem;
+        margin-bottom: 15px;
     }
 
-    .cookie-settings-btn {
-        width: 45px;
-        height: 45px;
-        bottom: 15px;
-        right: 15px;
+    .services-footer {
+        font-size: 1rem;
+        margin-top: 30px;
+    }
+
+    .leaf-decoration {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        left: 20px;
     }
 }

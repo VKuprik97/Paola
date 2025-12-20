@@ -46,6 +46,11 @@ function acceptAll() {
         timestamp: new Date().toISOString()
     };
 
+    // Seleziona automaticamente tutte le checkbox
+    document.getElementById('functional-cookies').checked = true;
+    document.getElementById('analytics-cookies').checked = true;
+    document.getElementById('performance-cookies').checked = true;
+
     localStorage.setItem('cookieConsent', JSON.stringify(preferences));
     document.getElementById('cookieConsent').classList.remove('show');
 
@@ -62,6 +67,11 @@ function rejectAll() {
         performance: false,
         timestamp: new Date().toISOString()
     };
+
+    // Deseleziona automaticamente tutte le checkbox
+    document.getElementById('functional-cookies').checked = false;
+    document.getElementById('analytics-cookies').checked = false;
+    document.getElementById('performance-cookies').checked = false;
 
     localStorage.setItem('cookieConsent', JSON.stringify(preferences));
     document.getElementById('cookieConsent').classList.remove('show');
