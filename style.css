@@ -1211,3 +1211,27 @@ footer {
         gap: 20px;
     }
 }
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific animation for service boxes */
+.service-box.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.service-box.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
