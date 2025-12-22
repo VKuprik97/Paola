@@ -44,7 +44,19 @@ header {
     z-index: 100;
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Header scroll effect */
+header.scrolled {
+    padding: 10px 0;
+    background-color: rgba(253, 251, 247, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+header.scrolled .logo {
+    width: 80px;
+    height: 80px;
 }
 
 .container {
@@ -66,6 +78,7 @@ header {
     object-fit: cover;
     border: 2px solid white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .nav-links {
@@ -80,7 +93,24 @@ header {
     font-family: var(--font-primary);
     font-size: 1.1rem;
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Underline animation on hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-teal);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
@@ -131,8 +161,13 @@ body.menu-open {
     position: relative;
     text-align: center;
     padding-top: 140px;
-    background-color: #f5f3f0;
+    background: linear-gradient(135deg, #f5f3f0 0%, #e8e6e3 100%);
     overflow: hidden;
+}
+
+/* Hero Content Animations */
+.hero-content {
+    animation: fadeInUp 1s ease-out;
 }
 
 .hero-title {
@@ -143,6 +178,7 @@ body.menu-open {
     color: #1a1a1a;
     position: relative;
     z-index: 2;
+    animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .hero-subtitle {
@@ -151,12 +187,14 @@ body.menu-open {
     color: var(--primary-teal);
     position: relative;
     z-index: 2;
+    animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 /* Pharmacy-themed Abstract Shapes for Hero */
 .abstract-shape {
     position: absolute;
     z-index: 1;
+    will-change: transform;
 }
 
 /* Large Pill/Capsule Shape */
@@ -168,6 +206,7 @@ body.menu-open {
     top: 15%;
     left: 10%;
     transform: rotate(-25deg);
+    animation: float 6s ease-in-out infinite, fadeIn 1s ease-out;
 }
 
 /* Medical Cross */
@@ -178,6 +217,7 @@ body.menu-open {
     clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
     top: 20%;
     right: 15%;
+    animation: float 8s ease-in-out infinite 1s, rotate360 20s linear infinite, fadeIn 1s ease-out 0.2s both;
 }
 
 /* Large Circle (Pill) */
@@ -188,6 +228,7 @@ body.menu-open {
     border-radius: 50%;
     bottom: 15%;
     right: 8%;
+    animation: float 7s ease-in-out infinite 0.5s, pulse 3s ease-in-out infinite, fadeIn 1s ease-out 0.4s both;
 }
 
 /* Small Capsule */
@@ -199,6 +240,7 @@ body.menu-open {
     bottom: 25%;
     left: 15%;
     transform: rotate(60deg);
+    animation: float 5s ease-in-out infinite 1.5s, fadeIn 1s ease-out 0.6s both;
 }
 
 /* Rounded Rectangle */
@@ -210,6 +252,74 @@ body.menu-open {
     top: 35%;
     right: 20%;
     transform: rotate(-15deg);
+    animation: float 6.5s ease-in-out infinite 2s, fadeIn 1s ease-out 0.8s both;
+}
+
+/* Modern Keyframe Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+
+    50% {
+        transform: translateY(0px) translateX(20px);
+    }
+
+    75% {
+        transform: translateY(20px) translateX(10px);
+    }
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
 }
 
 /* About Section */
@@ -231,12 +341,28 @@ body.menu-open {
     line-height: 1.1;
     margin-bottom: 40px;
     color: #1a1a1a;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.section-title.animated {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .about-text {
     font-size: 1.5rem;
     line-height: 1.6;
     color: var(--text-dark);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
+}
+
+.about-text.animated {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Services Section - Elegant Design */
@@ -350,13 +476,36 @@ body.menu-open {
     padding: 30px 20px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glowing effect on hover */
+.service-box::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 128, 128, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 0;
+}
+
+.service-box:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .service-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 128, 128, 0.2),
+        0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Service Image */
@@ -366,11 +515,13 @@ body.menu-open {
     margin: 0 auto 20px;
     display: block;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 1;
 }
 
 .service-box:hover .service-image {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(5deg);
 }
 
 /* Service Name */
@@ -381,6 +532,13 @@ body.menu-open {
     color: #2c2c2c;
     margin: 0;
     line-height: 1.4;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.service-box:hover .service-name {
+    color: var(--primary-teal);
 }
 
 .services-list {

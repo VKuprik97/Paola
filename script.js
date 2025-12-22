@@ -1,3 +1,13 @@
+// Header scroll effect
+window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
 // Cookie Consent Management
 document.addEventListener('DOMContentLoaded', function () {
     // Check if user has already made a choice
@@ -160,9 +170,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const servicesSection = document.querySelector('.services-section');
     const serviceBoxes = document.querySelectorAll('.service-box');
     const footer = document.querySelector('footer');
+    const aboutSection = document.querySelector('.about-section');
 
     // Add initial hidden state
     if (heroSection) heroSection.classList.add('animate-on-scroll');
+    if (aboutSection) {
+        const aboutTitle = aboutSection.querySelector('.section-title');
+        const aboutText = aboutSection.querySelector('.about-text');
+        if (aboutTitle) aboutTitle.classList.add('animate-on-scroll');
+        if (aboutText) aboutText.classList.add('animate-on-scroll');
+    }
     if (servicesSection) {
         const servicesTitle = servicesSection.querySelector('.services-title');
         if (servicesTitle) servicesTitle.classList.add('animate-on-scroll');
@@ -192,5 +209,31 @@ document.addEventListener('DOMContentLoaded', function () {
     // Observe all elements with animate-on-scroll class
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
         observer.observe(el);
+    });
+
+    // Parallax effect for hero shapes
+    const shapes = document.querySelectorAll('.abstract-shape');
+    let ticking = false;
+
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+
+        if (scrolled < heroHeight) {
+            shapes.forEach((shape, index) => {
+                const speed = 0.1 + (index * 0.05); // Different speeds for each shape
+                const yPos = -(scrolled * speed);
+                shape.style.transform = `translateY(${yPos}px)`;
+            });
+        }
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
     });
 });
