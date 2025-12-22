@@ -482,26 +482,6 @@ body.menu-open {
     overflow: hidden;
 }
 
-/* Glowing effect on hover */
-.service-box::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 128, 128, 0.1) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-    z-index: 0;
-}
-
-.service-box:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
 .service-box:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 15px 40px rgba(0, 128, 128, 0.2),
