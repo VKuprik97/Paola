@@ -554,9 +554,70 @@ body.menu-open {
     position: relative;
 }
 
+/* Section Header */
+.section-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.medical-cross-icon-large {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    margin: 0 auto 30px;
+    clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+.section-main-title {
+    font-size: 3rem;
+    font-family: var(--font-primary);
+    margin-bottom: 15px;
+    color: white;
+}
+
+.section-subtitle {
+    font-size: 1.3rem;
+    font-family: var(--font-secondary);
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
 .info-card {
-    max-width: 800px;
-    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .medical-cross-icon {
@@ -568,28 +629,20 @@ body.menu-open {
 }
 
 .info-title {
-    font-size: 3.5rem;
+    font-size: 2rem;
     margin-bottom: 30px;
+    font-family: var(--font-primary);
 }
 
 .info-details {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-family: var(--font-primary);
     margin-bottom: 30px;
+    line-height: 1.8;
 }
 
 .contact-info {
     margin-top: 30px;
-}
-
-.contact-item {
-    font-size: 1.3rem;
-    margin: 15px 0;
-    font-family: var(--font-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
 }
 
 .contact-item svg {
@@ -601,12 +654,144 @@ body.menu-open {
 .contact-info a {
     color: white;
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
 }
 
 .contact-info a:hover {
-    opacity: 0.8;
-    text-decoration: underline;
+    opacity: 0.9;
+    transform: translateX(5px);
+}
+
+.contact-item {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    font-family: var(--font-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateX(5px);
+}
+
+.contact-item img {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-item:hover img {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Location Info Section */
+.location-info {
+    text-align: center;
+    margin-top: 30px;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.location-info:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.location-title {
+    font-size: 2rem;
+    font-family: var(--font-primary);
+    margin-bottom: 20px;
+    color: white;
+}
+
+.location-address {
+    font-size: 1.2rem;
+    font-family: var(--font-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.location-address:hover {
+    transform: translateX(5px);
+}
+
+.location-address img {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.location-address:hover img {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.location-address a {
+    color: white !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.location-address a:hover {
+    opacity: 0.9;
+    transform: translateX(5px);
+}
+
+/* Map Container */
+.map-container {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex: 1;
+    position: relative;
+}
+
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 128, 128, 0.15), rgba(32, 112, 160, 0.1));
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.map-container iframe {
+    height: 100%;
+    min-height: 400px;
+    filter: saturate(0.7) contrast(0.9) brightness(1.05);
+    transition: filter 0.3s ease;
+}
+
+.map-container:hover iframe {
+    filter: saturate(1) contrast(1) brightness(1);
+}
+
+.contact-item {
+    margin-bottom: 20px;
+}
+
+.info-card .contact-item a,
+.contact-info a {
+    color: white !important;
+}
+
+.info-card .info-title {
+    color: white;
 }
 
 /* Footer */
@@ -1036,6 +1221,22 @@ footer {
     background-color: var(--accent-blue);
 }
 
+/* Tablet Responsive */
+@media (max-width: 992px) {
+    .info-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .info-card {
+        padding: 35px 25px;
+    }
+
+    .info-title {
+        font-size: 1.8rem;
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
 
@@ -1192,23 +1393,36 @@ footer {
         padding: 60px 0;
     }
 
+    .info-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .info-card {
+        padding: 30px 20px;
+    }
+
     .info-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .info-details {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .contact-item {
         font-size: 1rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 5px;
+        flex-direction: row;
+        text-align: left;
+        gap: 10px;
     }
 
     .contact-item a {
         word-break: break-word;
+    }
+
+    .map-container iframe {
+        height: 200px;
     }
 
     /* Footer */
