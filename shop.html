@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Farmacia Picco - Catalogo Prodotti | Livorno Ferraris</title>
+    <meta name="title" content="Farmacia Picco - Catalogo Prodotti | Livorno Ferraris">
+    <meta name="description"
+        content="Scopri le offerte e i prodotti della Farmacia Picco. Prenota comodamente su WhatsApp e ritira in farmacia.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.farmaciapicco.it/shop.html">
+    <meta property="og:title" content="Farmacia Picco - Catalogo Prodotti">
+    <meta property="og:description"
+        content="Scopri le offerte e i prodotti della Farmacia Picco. Prenota comodamente su WhatsApp.">
+    <meta property="og:image" content="https://www.farmaciapicco.it/assets/images/logo-rot.png">
+
+    <meta name="theme-color" content="#2dd4bf">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo-rot.png">
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo-wrapper">
+                <a href="index.html">
+                    <img src="assets/images/logo-rot.png" alt="Farmacia Picco Logo" class="logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+                    <li><a href="shop.html" class="active">Offerte</a></li>
+                    <li><a href="index.html#servizi">Servizi</a></li>
+                    <li><a href="index.html#contatti">Contatti</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Shop Hero Section -->
+        <section class="shop-hero">
+            <div class="container">
+                <h1 class="shop-title">Le Nostre Proposte</h1>
+                <p class="shop-subtitle">Salute e benessere a portata di click. Prenota online, ritira in farmacia.</p>
+            </div>
+        </section>
+
+        <!-- Product Catalogue Section -->
+        <section class="shop-section">
+            <div class="container">
+
+                <!-- Filters -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">Tutti</button>
+                    <button class="filter-btn" data-filter="cosmesi">Cosmesi</button>
+                    <button class="filter-btn" data-filter="integratori">Integratori</button>
+                    <button class="filter-btn" data-filter="igiene">Igiene</button>
+                    <button class="filter-btn" data-filter="offerte">Offerte Speciali</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="products-grid" class="products-grid">
+                    <!-- Products will be injected here by JS -->
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-info">
+                <h3>Farmacia Picco</h3>
+                <p>Officina della Salute</p>
+                <p>&copy; 2025 Farmacia Picco. Tutti i diritti riservati.</p>
+                <p>
+                    <a href="privacy.html" class="privacy-link">Privacy Policy</a> |
+                    <a href="cookies.html" class="privacy-link">Cookie Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="scripts/shop.js"></script>
+</body>
+
+</html>
