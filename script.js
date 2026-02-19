@@ -190,6 +190,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     if (footer) footer.classList.add('animate-on-scroll');
 
+    // Reset Section Animations
+    const resetSection = document.querySelector('.reset-section');
+    if (resetSection) {
+        const resetTitle = resetSection.querySelector('.section-title');
+        const resetSubtitle = resetSection.querySelector('.section-subtitle');
+        const resetCards = resetSection.querySelectorAll('.reset-card');
+
+        if (resetTitle) resetTitle.classList.add('animate-on-scroll');
+        if (resetSubtitle) resetSubtitle.classList.add('animate-on-scroll');
+
+        resetCards.forEach((card, index) => {
+            card.classList.add('animate-on-scroll');
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    }
+
     // Intersection Observer for scroll animations
     const observerOptions = {
         threshold: 0.1,
@@ -236,4 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
             ticking = true;
         }
     });
+
+
 });
